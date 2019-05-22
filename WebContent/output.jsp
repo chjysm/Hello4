@@ -1,4 +1,4 @@
-<%@page import="ncs.kh.dto.MessageDTO"%>
+<%@page import="kh.ncs.dto.InOutDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -15,7 +15,7 @@
 			%>
 			<span><%=list.getSeq()%></span>
 			<span><%=list.getName()%></span>
-			<span><%=list.getMsg()%></span>
+			<span><%=list.getMessage()%></span>
 			<br>
 			<%
 		}
