@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%
-		ArrayList<MessageDTO> lists = (ArrayList<MessageDTO>)request.getAttribute("lists");
+		ArrayList<InOutDTO> lists = (ArrayList<InOutDTO>)request.getAttribute("lists");
 		for(MessageDTO list : lists){
 			%>
 			<span><%=list.getSeq()%></span>
