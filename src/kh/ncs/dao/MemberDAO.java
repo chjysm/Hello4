@@ -38,7 +38,7 @@ public class MemberDAO {
 		} 
 	}
 	public int login(String id, String pw) throws Exception {
-		String sql="select * from sajo where id=? and pw=?";
+		String sql="select * from sajo where id=? and password=?";
 		String newPw=testSHA256(pw);
 		try(
 				Connection con = this.getConnection();

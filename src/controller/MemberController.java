@@ -44,6 +44,7 @@ public class MemberController extends HttpServlet {
 					request.getRequestDispatcher("logIndex.jsp").forward(request, response);
 				}
 			} catch (Exception e) {
+				e.printStackTrace();
 				response.sendRedirect("error.html");
 			}
 		}else if (command.equals("/goJoinForm.me")) {
