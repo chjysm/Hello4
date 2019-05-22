@@ -12,11 +12,9 @@
                         border: 2px double;
                         text-align: center;
                     }
-
                     #wrapper {
                         width: 300px;
                     }
-
                     #wrapper2 {
                         width: 300px;
                     }
@@ -24,7 +22,7 @@
             </head>
             <body>
                 <c:choose>
-                    <c:when test="${loginID!=null}">
+                    <c:when test="${loginID!=null}"> 
                         <div id="wrapper2">
                             <div>${loginID} 님 환영합니다.</div>
                             <div>
@@ -35,26 +33,26 @@
                         </div>
                         <script>
                             window.onload=function(){
-                                document.getElementById("signOut").onclick=function(){
+                                document.getElementById("signOut").onclick=function(){ 
                                     var check = confirm("정말 삭제 하시겠습니까?");
                                     if(check){
-                                        location.href="signOut.me";
+                                        location.href="signOut.me"; 
                                     }else{
                                         location.href="goIndex.me";
                                     }
                                 };
-                                document.getElementById("logOut").onclick=function(){
+                                document.getElementById("logOut").onclick=function(){ 
                                     location.href="logout.me"; 
                                 };
-                                document.getElementById("myPage").onclick=function(){
+                                document.getElementById("myPage").onclick=function(){ 
                                     location.href="goMyPage.me"; 
                                 };
                             };
                         </script>
                     </c:when>
                     <c:otherwise>
-                        <div id="wrapper">
-                            <form action="login.me">
+                        <div id="wrapper"> 
+                            <form action="login.me"> 
                                 <div>회원 로그인</div>
                                 <div>
                                     <span>아이디 : </span> <input type="text" id="id" name="id">
@@ -64,7 +62,7 @@
                                 </div>
                                 <div>
                                     <input id="loginBtn" type="submit" value="로그인"> 
-                                    <input id="signBtn" type="button" value="회원가입">
+                                    <input id="signBtn" type="button" value="회원가입"> 
                                 </div>
                             </form>
                         </div>
