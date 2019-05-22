@@ -13,7 +13,7 @@ import kh.ncs.dao.InOutDAO;
 import kh.ncs.dto.InOutDTO;
 
 
-@WebServlet(".io")
+@WebServlet("*.io")
 public class IOController extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
