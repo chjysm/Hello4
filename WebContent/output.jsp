@@ -10,8 +10,8 @@
 </head>
 <body>
 	<%
-		ArrayList<InOutDTO> lists = (ArrayList<InOutDTO>)request.getAttribute("lists");
-		for(InOutDTO list : lists){
+		ArrayList<InOutDTO> lists = (ArrayList<InOutDTO>)request.getAttribute("List");
+		for(InOutDTO list : List){
 			%>
 			<span><%=list.getSeq()%></span>
 			<span><%=list.getName()%></span>
