@@ -36,7 +36,7 @@ public class BoardDAO {
 			pstat.setString(3, dto.getContents());
 
 			int result = pstat.executeUpdate();
-			
+
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -72,6 +72,39 @@ public class BoardDAO {
 			return null;
 		}
 
+	}
+
+	// selectId sub code
+	public PreparedStatement forSelectId(Connection con, String id) throws Exception {
+		String sql = "select * from board4 where id = ?";
+		PreparedStatement pstat = con.prepareStatement(sql);
+		pstat.setString(1, id);
+		return pstat;
+	}
+
+	// 아이디로 게시물 정보검색 //이건 session으로 받아온 id로 검색 해서
+	public BoardDTO select_id(String id) {
+
+		try (Connection con = this.getConnection();
+				PreparedStatement pstat = this.forSelectId(con, id);
+				ResultSet rs = pstat.executeQuery();
+
+		) {
+		
+			BoardDTO dto = new BoardDTO();
+			rs.next();
+			dto.setSeq(rs.getInt("seq"));
+			dto.setTitle(rs.getString("title"));
+			dto.setWriter(rs.getString("writer"));
+			dto.setContents(rs.getString("content"));
+			dto.setWriteDate(rs.getTimestamp("writeDate"));
+			return dto;
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
