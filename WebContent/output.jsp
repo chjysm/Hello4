@@ -13,7 +13,7 @@
     <c:forEach var="list" items="${List}">
         <span>${list.seq}</span>
         <span>${list.name}</span>
-        <span>${list.message}</span>
+        <span>${list.message}</span><br>
     </c:forEach>
 </body>
 </html>
