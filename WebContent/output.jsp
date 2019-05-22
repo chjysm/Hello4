@@ -11,7 +11,7 @@
 <body>
 	<%
 		ArrayList<InOutDTO> lists = (ArrayList<InOutDTO>)request.getAttribute("lists");
-		for(MessageDTO list : lists){
+		for(InOutDTO list : lists){
 			%>
 			<span><%=list.getSeq()%></span>
 			<span><%=list.getName()%></span>
