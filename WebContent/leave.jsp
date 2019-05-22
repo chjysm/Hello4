@@ -57,7 +57,7 @@
 <body>
     <div id="wrapper">
         <div id="header"><span>비밀번호를 입력해주세요</span></div>
-        <form action="leave.member" method="post" id="leaveForm">
+        <form action="leave.me" method="post" id="leaveForm">
         <div id="footer">
             <input type="password" name="password" id="password">
              <input type="button" value="확인" id="btn">
