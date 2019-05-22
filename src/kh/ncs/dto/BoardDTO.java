@@ -9,7 +9,7 @@ public class BoardDTO {
 	private String contents;
 	private Timestamp writeDate;
 
-	public BoardDTO() {
+	public BoardDTO() {//오류왜나냐고 ㅡㅡ
 		super();
 	}
 
