@@ -12,13 +12,13 @@
 		<c:when test="${deleteMember > 0 }">
 			<script>
 				alert("회원탈퇴가 성공적으로 되었습니다.")
-				location.href="goToIndex.member";
+				location.href="goToIndex.me";
 			</script>
 		</c:when>
 		<c:otherwise>
 			<script>
 				alert("회원탈퇴에 실패했습니다.");
-				location.href="goToIndex.member";
+				location.href="goToIndex.me";
 			</script>
 		</c:otherwise>
 	</c:choose>

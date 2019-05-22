@@ -7,6 +7,9 @@
                 <meta charset="UTF-8">
                 <title>Insert title here</title>
                 <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+                <script>
+//                 	
+                </script>
                 <style>
                     div {
                         border: 2px double;
@@ -32,22 +35,30 @@
                             </div>
                         </div>
                         <script>
-                            window.onload=function(){
-                                document.getElementById("signOut").onclick=function(){ 
-                                    var check = confirm("정말 삭제 하시겠습니까?");
-                                    if(check){
-                                        location.href="signOut.me"; 
-                                    }else{
-                                        location.href="goIndex.me";
-                                    }
-                                };
-                                document.getElementById("logOut").onclick=function(){ 
-                                    location.href="logout.me"; 
-                                };
-                                document.getElementById("myPage").onclick=function(){ 
-                                    location.href="goMyPage.me"; 
-                                };
-                            };
+                           $(function(){
+                        	  $("#signOut").on("click",function(){ // 회원탈퇴
+                        		  var check = confirm("정말 삭제 하시겠습니까?");
+                                  if(check){
+                                      location.href="signOut.me"; 
+                                  }else{
+                                      location.href="goIndex.me";
+                                  }
+                        	  }); 
+                                   
+                               
+                               $("#logOut").on("click",function(){//로그아웃
+                            	   location.href="logOut.me";
+                               });
+                                    
+                               
+                               $("#myPage").on("click",function(){//마이페이지
+                            	   location.href="goMyPage.me";
+                               }); 
+                                    
+                              
+                           })
+                                
+                           
                         </script>
                     </c:when>
                     <c:otherwise>
