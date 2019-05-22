@@ -5,13 +5,15 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-
 import kh.ncs.dto.MemberDTO;
+
 
 public class MemberDAO {
 	private DataSource ds;
@@ -80,5 +82,17 @@ public class MemberDAO {
 			con.commit();
 			return result;
 		} 
+	}
+	public int deleteMember(String id) throws Exception { // 아이디값을 이용해서 회원탈퇴
+		String sql = "delete from sajo where id = ? ";
+		try(
+				Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);
+				){
+			pstat.setString(1, id);
+			con.commit();
+			int result = pstat.executeUpdate();
+			return result;
+		}
 	}
 }
