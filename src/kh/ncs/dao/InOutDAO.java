@@ -17,14 +17,14 @@ public class InOutDAO {
 	public InOutDAO()throws Exception{
 		Context ctx = new InitialContext();
 		Context compenv = (Context)ctx.lookup("java:/comp/env");
-			this.ds = (DataSource)compenv.lookup("jdbc");
+		this.ds = (DataSource)compenv.lookup("jdbc");
 	}
-	
+
 	private Connection getConnection()throws Exception{
 		return ds.getConnection();
 	}
-		
-	public int insert(InOutDTO param)throws Exception {
+
+	public int insert(InOutDTO param){
 		String sql = "insert into io values(io_seq.nextval,?,?)";
 		try(
 				Connection con = this.getConnection();
@@ -34,9 +34,12 @@ public class InOutDAO {
 			pstat.setString(2, param.getMessage());
 			int result = pstat.executeUpdate();
 			return result;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return -1;
 		}
 	}
-	public List<InOutDTO> output()throws Exception{
+	public List<InOutDTO> output(){
 		String sql = "select * from io";
 		try(
 				Connection con = this.getConnection();
@@ -45,14 +48,17 @@ public class InOutDAO {
 				){
 			List<InOutDTO> list = new ArrayList<>();
 			while(rs.next()) {
-			int seq = rs.getInt("seq");
-			String name = rs.getString("name");
-			String msg = rs.getString("message");
-			InOutDTO dto = new InOutDTO(seq, name, msg);
-			list.add(dto);
-		} 
+				int seq = rs.getInt("seq");
+				String name = rs.getString("name");
+				String msg = rs.getString("message");
+				InOutDTO dto = new InOutDTO(seq, name, msg);
+				list.add(dto);
+			} 
 			return list;
-			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
-	
+
 }
