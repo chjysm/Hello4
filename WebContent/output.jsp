@@ -1,5 +1,6 @@
 <%@page import="kh.ncs.dto.InOutDTO"%>
 <%@page import="java.util.ArrayList"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,16 +10,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		ArrayList<InOutDTO> lists = (ArrayList<InOutDTO>)request.getAttribute("List");
-		for(InOutDTO list : List){
-			%>
-			<span><%=list.getSeq()%></span>
-			<span><%=list.getName()%></span>
-			<span><%=list.getMessage()%></span>
-			<br>
-			<%
-		}
-	%>
+    <c:forEach var="list" items="${List}">
+        <span>${list.seq}</span>
+        <span>${list.name}</span>
+        <span>${list.message}</span>
+    </c:forEach>
 </body>
 </html>
