@@ -22,7 +22,7 @@ public class BoardDTO {
 		this.writeDate = writeDate;
 	}
 
-	public int getSeq() {
+	public int getSeq() {//ㅁㄴㅇㅁㄴㅇ
 		return seq;
 	}
 
