@@ -14,6 +14,7 @@ import kh.ncs.dto.InOutDTO;
 
 public class InOutDAO {
 	private DataSource ds;
+	
 	public InOutDAO()throws Exception{
 		Context ctx = new InitialContext();
 		Context compenv = (Context)ctx.lookup("java:/comp/env");
@@ -33,6 +34,7 @@ public class InOutDAO {
 			pstat.setString(1, param.getName());
 			pstat.setString(2, param.getMessage());
 			int result = pstat.executeUpdate();
+			con.commit();
 			return result;
 		}catch(Exception e) {
 			e.printStackTrace();
