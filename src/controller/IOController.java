@@ -20,7 +20,12 @@ public class IOController extends HttpServlet {
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command=requestURI.substring(contextPath.length());
-		InOutDAO dao = new InOutDAO();
+		InOutDAO dao = null;
+		try {
+		dao= new InOutDAO();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		if(command.equals("/input.io")) {
 			String name=request.getParameter("name");
 			String msg = request.getParameter("msg");
